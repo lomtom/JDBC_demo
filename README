@@ -1,23 +1,46 @@
-1. mysql驱动与自己的电脑安装的mysql版本需要一致
-2. `JDBCUtils`的信息必须与自己的数据库一致
+1、mysql驱动与自己的电脑安装的mysql版本需要一致
 
-```java
+
+2、JDBCUtils的信息必须与自己的数据库一致
+
  Class.forName("com.mysql.cj.jdbc.Driver");
  String url = "jdbc:mysql://localhost:3308/demo";
  String userName = "root";
  String password = "123456";
-```
-3. mysql 5.X 与8.X 版本CLass.forName里面填写的有区别
 
-```java
+
+3、mysql 5.X 与8.X 版本CLass.forName里面填写的有区别
+
 8.X
  Class.forName("com.mysql.cj.jdbc.Driver");
 
 5.X
  Class.forName("com.mysql.jdbc.Driver");
-```
-4. 若报serve time错误，在url后加上时区或者修改mysql时区
 
-```cpp
+
+4、若报serve time错误，在url后加上时区或者修改mysql时区
 String url = "jdbc:mysql://localhost:3308/demo?serverTimezone=Asia/Shanghai&characterEncoding=utf-8";
-```
+5 . servlet 中获取参数通过表单中的name来取值，所以必须保持一致
+
+
+ // 从请求中获取参数
+ String userName = request.getParameter("userName");
+ String password = request.getParameter("password");
+
+
+
+
+<!--  定义表单-->
+<form name="form" role="form" action="login" method="post">
+    <div class="form-group">
+        <label for="userName">用户名</label>
+        <input type="userName" class="form-control"
+                                                name="userName" id="userName"/>
+    </div>
+    <div class="form-group">
+        <label for="password">密码</label>
+        <input type="password" class="form-control"
+                                               name="password" id="password"/>
+    </div>
+    <button type="submit" class="btn btn-default" onclick="return check()">Submit</button>
+</form>
