@@ -1,0 +1,23 @@
+1. mysql驱动与自己的电脑安装的mysql版本需要一致
+2. `JDBCUtils`的信息必须与自己的数据库一致
+
+```java
+ Class.forName("com.mysql.cj.jdbc.Driver");
+ String url = "jdbc:mysql://localhost:3308/demo";
+ String userName = "root";
+ String password = "123456";
+```
+3. mysql 5.X 与8.X 版本CLass.forName里面填写的有区别
+
+```java
+8.X
+ Class.forName("com.mysql.cj.jdbc.Driver");
+
+5.X
+ Class.forName("com.mysql.jdbc.Driver");
+```
+4. 若报serve time错误，在url后加上时区或者修改mysql时区
+
+```cpp
+String url = "jdbc:mysql://localhost:3308/demo?serverTimezone=Asia/Shanghai&characterEncoding=utf-8";
+```
